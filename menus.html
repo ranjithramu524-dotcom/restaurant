@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Signature Menus | Welcome Restaurant Pure Veg</title>
+  <meta name="description" content="Explore our authentic South Indian pure vegetarian menu: crispy ghee roast dosas, fluffy mallipoo idlies, royal afternoon thalis, and degree filter coffee."/>
+  
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#9e3d00",
+            "primary-container": "#c64f00",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "secondary": "#2c694e",
+            "secondary-container": "#aeeecb",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#316e52",
+            "tertiary": "#9a401b",
+            "tertiary-container": "#ba5831",
+            "on-tertiary": "#ffffff",
+            "background": "#fff8f5",
+            "on-background": "#1e1b19",
+            "surface": "#fff8f5",
+            "on-surface": "#1e1b19",
+            "surface-dim": "#e0d8d5",
+            "surface-bright": "#fff8f5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#faf2ee",
+            "surface-container": "#f4ece8",
+            "surface-container-high": "#eee7e3",
+            "surface-container-highest": "#e9e1dd",
+            "on-surface-variant": "#594238",
+            "outline": "#8c7166",
+            "outline-variant": "#e0c0b2"
+          },
+          fontFamily: {
+            "display-lg": ["Newsreader", "serif"],
+            "headline-lg": ["Newsreader", "serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="bg-surface/95 backdrop-blur-md text-primary docked full-width top-0 sticky z-40 border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+    <div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-20">
+      
+      <!-- Brand Logo & Pure Veg Seal -->
+      <a class="flex items-center gap-3 group focus:outline-none rounded-lg p-1" href="index.html">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-md text-2xl md:text-3xl font-semibold text-primary tracking-tight">
+              Welcome Restaurant
+            </span>
+            <div class="pure-veg-symbol" title="100% Pure Vegetarian">
+              <div class="pure-veg-dot"></div>
+            </div>
+          </div>
+          <span class="font-label-sm text-[11px] tracking-widest text-secondary font-bold uppercase">
+            Pure Veg Heritage • Estd. 1982
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 font-label-lg text-sm font-medium">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="index.html">
+          Home
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="about.html">
+          Our Story
+        </a>
+        <a class="text-primary border-b-2 border-primary pb-1 font-semibold transition-all" href="menus.html">
+          Signature Menus
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="contact.html">
+          Contact &amp; Reservation
+        </a>
+      </nav>
+
+      <!-- Trailing Action Buttons -->
+      <div class="flex items-center gap-3 md:gap-4">
+        <!-- Shopping Cart Trigger -->
+        <button onclick="openCartDrawer()" aria-label="Shopping Cart" class="cart-toggle-btn relative p-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all focus:outline-none" type="button">
+          <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+          <span class="cart-counter-badge absolute top-1.5 right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center ring-2 ring-surface">0</span>
+        </button>
+
+        <button onclick="openReservationModal()" class="hidden md:inline-flex items-center justify-center font-label-md text-xs px-4 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-tertiary shadow-sm hover:shadow active:scale-95 transition-all duration-150 font-semibold">
+          Reserve a Table
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="openMobileMenu()" class="md:hidden p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container focus:outline-none">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-7xl mx-auto px-6 md:px-12 py-10 space-y-12 w-full" id="menu-showcase-container">
+    
+    <!-- EDITORIAL PAGE HEADER -->
+    <section class="space-y-4 max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/40 border border-secondary/30 text-secondary text-xs font-bold uppercase tracking-wider">
+        <div class="pure-veg-symbol" style="width:12px;height:12px;"><div class="pure-veg-dot" style="width:6px;height:6px;"></div></div>
+        <span>Authentic South Indian Vegetarian Temple Kitchen</span>
+      </div>
+      <h1 class="font-display-lg text-4xl sm:text-5xl text-on-surface tracking-tight font-medium">
+        The Grand Heirloom Menus
+      </h1>
+      <p class="font-body-lg text-base sm:text-lg text-on-surface-variant leading-relaxed">
+        Recipes passed down across forty years. Fermented naturally in granite stone for fourteen hours, roasted in cold-churned native A2 cow ghee, and tempered over slow coals with heirloom farm spices.
+      </p>
+    </section>
+
+    <!-- INTERACTIVE FILTER & SEARCH BAR -->
+    <section class="sticky top-20 z-30 bg-surface/95 backdrop-blur-md py-4 border-y border-outline-variant/40 -mx-6 px-6 md:-mx-12 md:px-12 transition-all">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- Category Pills Navigation -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
+          <button onclick="filterMenuCategory('all', this)" class="category-pill shrink-0 px-4 py-2 rounded-full font-label-md text-xs font-semibold bg-primary text-on-primary shadow-sm transition-all active:scale-95">
+            All Items (<span id="active-dish-counter">14</span>)
+          </button>
+          <button onclick="filterMenuCategory('tiffin', this)" class="category-pill shrink-0 px-4 py-2 rounded-full font-label-md text-xs font-semibold bg-surface border border-outline-variant text-on-surface hover:border-primary transition-all active:scale-95">
+            Morning Tiffin &amp; Dosas
+          </button>
+          <button onclick="filterMenuCategory('thalis', this)" class="category-pill shrink-0 px-4 py-2 rounded-full font-label-md text-xs font-semibold bg-surface border border-outline-variant text-on-surface hover:border-primary transition-all active:scale-95">
+            Royal Thalis
+          </button>
+          <button onclick="filterMenuCategory('snacks', this)" class="category-pill shrink-0 px-4 py-2 rounded-full font-label-md text-xs font-semibold bg-surface border border-outline-variant text-on-surface hover:border-primary transition-all active:scale-95">
+            Evening Snacks &amp; Vadas
+          </button>
+          <button onclick="filterMenuCategory('drinks', this)" class="category-pill shrink-0 px-4 py-2 rounded-full font-label-md text-xs font-semibold bg-surface border border-outline-variant text-on-surface hover:border-primary transition-all active:scale-95">
+            Filter Kaapi &amp; Brews
+          </button>
+        </div>
+
+        <!-- Search and Dietary Filters Cluster -->
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Live Search Bar -->
+          <div class="relative flex-1 sm:w-64">
+            <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant/70 text-lg">search</span>
+            <input id="menu-search-input" type="text" placeholder="Search dosas, idlies, kaapi..." class="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-full pl-9 pr-4 py-2 text-xs font-body-sm text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-1 focus:ring-primary shadow-sm"/>
+          </div>
+
+          <!-- Dietary Toggle Pills -->
+          <div class="flex items-center gap-2">
+            <button id="dietary-filter-jain" onclick="toggleDietaryFilter('jain')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-secondary text-secondary font-label-md text-xs font-bold hover:bg-secondary/10 transition-colors" title="Filter dishes without onion or garlic">
+              <span class="material-symbols-outlined text-sm">spa</span>
+              <span>Jain Friendly</span>
+            </button>
+            <button id="dietary-filter-vegan" onclick="toggleDietaryFilter('vegan')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-secondary text-secondary font-label-md text-xs font-bold hover:bg-secondary/10 transition-colors" title="Filter dairy-free vegan dishes">
+              <span class="material-symbols-outlined text-sm">eco</span>
+              <span>Pure Vegan</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== MENU SECTION 1: MORNING TIFFIN & DOSAS ==================== -->
+    <section class="menu-category-block space-y-6 pt-4" id="section-tiffin">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-outline-variant/40 pb-4 gap-2">
+        <div>
+          <span class="text-label-sm text-xs font-bold text-primary tracking-widest uppercase">Dawn to Noon Tradition</span>
+          <h2 class="font-headline-lg text-2xl sm:text-3xl font-medium text-on-surface">Morning Tiffin &amp; Royal Breakfast</h2>
+        </div>
+        <p class="text-body-sm text-xs sm:text-sm text-on-surface-variant italic">Steamed on sacred linen, roasted on seasoned iron tawas with pure A2 cow ghee.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- CARD 1: Mallipoo Idly (Large 7-col Feature) -->
+        <article class="md:col-span-7 bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="jain,vegan,chef">
+          <div class="relative h-64 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Overhead flatlay of steaming snow-white Mallipoo Idlies with gunpowder podi, ghee, and trio chutneys" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaoEjjgnYT2ZXUJ1qKrAu2_VEoemBN9K9UJ9piMcTdsSuMymlc0uATC45-dqbTFyT6ZxwlfSkrKHa-l1TKOyG9YTk1SgATIbWjwXgWhsYCv3C-HpJDVWTyQyZRfEo_LGQX0edaBdWAMEJT5Pr8I_2USEAaXyNTIIz3MVLzQLNH0MA4T9HTwg9dxD7_XHukbkyrl-dKJTZ33jAfHmpGCxO-thqIpO737nbtPDUbyDKWA1Owjy0EFCQr"/>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-2.5 py-1 bg-surface/90 backdrop-blur-sm rounded-md text-[11px] font-bold text-secondary flex items-center gap-1.5 shadow-sm">
+                <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div> PURE VEG
+              </span>
+              <span class="px-2.5 py-1 bg-primary text-on-primary rounded-md text-[11px] font-bold shadow-sm">
+                CHEF SIGNATURE
+              </span>
+            </div>
+            <div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px] text-on-surface font-semibold shadow-sm">
+              Madurai Heritage
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-start">
+                <h3 class="font-headline-sm text-2xl font-semibold text-on-surface group-hover:text-primary transition-colors">Mallipoo Idly (3 Pcs)</h3>
+                <span class="font-headline-sm text-2xl font-bold text-primary">₹85</span>
+              </div>
+              <p class="mt-2 text-body-md text-sm text-on-surface-variant leading-relaxed">
+                Steamed pillowy-soft rice cakes tender as jasmine petals. Served with fiery roasted gun-powder podi, melting village ghee, fresh grated coconut, spicy tomato &amp; cilantro chutneys, and our 12-spice heirloom drumstick sambar.
+              </p>
+            </div>
+            <div class="space-y-4 pt-2 border-t border-outline-variant/30">
+              <div class="flex items-center justify-between text-body-sm text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="text-on-surface-variant font-medium">Spice:</span>
+                  <div class="flex text-primary">
+                    <span class="material-symbols-outlined text-[16px] fill-icon">local_fire_department</span>
+                    <span class="material-symbols-outlined text-[16px] text-outline-variant">local_fire_department</span>
+                    <span class="material-symbols-outlined text-[16px] text-outline-variant">local_fire_department</span>
+                  </div>
+                  <span class="text-on-surface-variant font-medium">Mild Warmth</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded bg-surface border border-outline-variant/60 font-semibold text-on-surface-variant">Jain Opt</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-outline-variant/60 font-semibold text-on-surface-variant">Gluten Free</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-body-sm text-xs text-tertiary flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">restaurant</span>
+                  Pair with: <em>South Indian Filter Kaapi</em>
+                </span>
+                <button class="px-4 py-2 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all shadow-sm flex items-center gap-1.5" onclick="addToCart('Mallipoo Idly (3 Pcs)', 85, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBaoEjjgnYT2ZXUJ1qKrAu2_VEoemBN9K9UJ9piMcTdsSuMymlc0uATC45-dqbTFyT6ZxwlfSkrKHa-l1TKOyG9YTk1SgATIbWjwXgWhsYCv3C-HpJDVWTyQyZRfEo_LGQX0edaBdWAMEJT5Pr8I_2USEAaXyNTIIz3MVLzQLNH0MA4T9HTwg9dxD7_XHukbkyrl-dKJTZ33jAfHmpGCxO-thqIpO737nbtPDUbyDKWA1Owjy0EFCQr', 'Breakfast Tiffin')">
+                  <span>Add to Order</span>
+                  <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5-col Stack -->
+        <div class="md:col-span-5 flex flex-col gap-6">
+          
+          <!-- CARD 2: Ghee Ven Pongal -->
+          <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-5 hover:border-primary/50 transition-all duration-300 flex-1 flex flex-col justify-between group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="jain,chef">
+            <div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+                    <span class="text-label-sm text-[11px] text-secondary font-bold">TEMPLE PRASADAM</span>
+                  </div>
+                  <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors mt-1">Ghee Ven Pongal</h3>
+                </div>
+                <span class="font-headline-sm text-xl font-bold text-primary">₹110</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant leading-relaxed">
+                Creamy roasted golden moong dal &amp; fragrant Seeraga Samba rice simmered slow, tempered heavily with Tellicherry peppercorns, roasted cumin, curry leaves, and whole golden cashews in pure cow ghee.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <div class="flex items-center gap-1 text-primary">
+                <span class="material-symbols-outlined text-[16px] fill-icon">local_fire_department</span>
+                <span class="text-xs text-on-surface-variant font-medium">Peppery Temper</span>
+              </div>
+              <button class="px-3.5 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Ghee Ven Pongal', 110, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkhfgmBUUhCuoLfUt9EqQFxgQXp-Yze7go9PijHUdLYxOGFNoVMC5llnxHI7Mp_Cxtmew_HeaoFr3Vt9bKsXo-V1Dec8Wj5rBRBeLA6xJ0ho1EHms5Of5aV7Jveb6cFkBAjrhPWKfogopft2MKWDTzKVffEpGGLHkGjer31SnmH6OW1b-leE91OkREtNbY37tqpWp8k6a_-e3HP8NZnMAenG-1q_cDcSq8ckBX_drN6ExlDDmN7kJy', 'Temple Tiffin')">
+                Add to Order
+              </button>
+            </div>
+          </article>
+
+          <!-- CARD 3: Poori Masala -->
+          <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-5 hover:border-primary/50 transition-all duration-300 flex-1 flex flex-col justify-between group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="vegan">
+            <div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+                    <span class="text-label-sm text-[11px] text-on-surface-variant font-medium">TRADITIONAL TIFFIN</span>
+                  </div>
+                  <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors mt-1">Poori Masala (3 Pcs)</h3>
+                </div>
+                <span class="font-headline-sm text-xl font-bold text-primary">₹115</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant leading-relaxed">
+                Three balloon-puffed golden whole-wheat pooris fried to airy crispness, accompanied by rich turmeric-tempered potato onion sagu, green chillies, and sharp coconut chutney.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-on-surface-variant font-medium">Medium Spiced</span>
+              <button class="px-3.5 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Poori Masala (3 Pcs)', 115, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwVBzfLpQOEeO2dEfMOGM3cNCMO8jk8EUTHtIqogFSPdMb11CxR-xQMZEKck8hlVS1Z6aJbqko2XOhwcKG1a4sXPPmfCXESXHXENxYr7iHq5ecn65wxoph-aZzMD_3uPAV-a3kU30rid3nUfsC9MRdxYHeP-XvrkKtIuMGpAdn4-h8A-zhqRghFXJCWbTezsJkeB6RcNcufi4IkUjADKKvRG4agop3OSscek3sb6yUycaRv9BhT6Mt', 'Tiffin Breakfast')">
+                Add to Order
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- DOSAS GRID (4 Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+        
+        <!-- Dosa 1: Golden Paper Roast Ghee Dosa -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="chef,jain">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="3-foot long paper-thin Ghee Roast Dosa on antique bronze table" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYRziYYf1o5VJLMcXfIJUE8cgz5ePUMruXLm4WXXIxOJ0uHZ9F956z9CXwCiV2hNsNWhmm2ibVaogybMqYfLPXWEmkdmvaAezsbH7dYYCTht94l7HG7YnJ6gSpydPb0VFWUgBpQpuk46oDE1baCpCyBQTWo75S6QGho5wLwEL87-GAmoVG5FL33GAKJHbbr3ERBw9LwDtSoWYfQNC1N_Z7XRIrFIShmVkTj3T328eT_ynpcy_SULQN"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-primary text-on-primary rounded text-[10px] font-bold shadow-sm">
+              HOUSE LEGEND
+            </span>
+            <div class="absolute top-3 right-3 pure-veg-symbol bg-surface/90"><div class="pure-veg-dot"></div></div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Paper Roast Ghee Dosa</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹195</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant line-clamp-3">
+                Stretched to paper-thin translucence on roaring cast-iron, showered in pure A2 cow ghee. Served with coconut, tomato, and mint chutneys and drumstick sambar.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-secondary font-bold">Wood-Churned Ghee</span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Paper Roast Ghee Dosa', 195, 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYRziYYf1o5VJLMcXfIJUE8cgz5ePUMruXLm4WXXIxOJ0uHZ9F956z9CXwCiV2hNsNWhmm2ibVaogybMqYfLPXWEmkdmvaAezsbH7dYYCTht94l7HG7YnJ6gSpydPb0VFWUgBpQpuk46oDE1baCpCyBQTWo75S6QGho5wLwEL87-GAmoVG5FL33GAKJHbbr3ERBw9LwDtSoWYfQNC1N_Z7XRIrFIShmVkTj3T328eT_ynpcy_SULQN', 'Dosa Special')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dosa 2: Mysore Masala Dosa -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="chef">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Crispy golden Mysore Masala Dosa with red garlic chili paste" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD6N35127jxKJvABISOIi7-VLj-3JBWx0njF6NA2votUJo6e-tEC3PoLi66hAipg-nPONAo6NIYfPg2UwFTRuNoQv5AK7LlblJefw7NL4IWYc9KxJ6vVFX7lO3jO1bNUmkrNJ_6ig5fvN4Z-6j1uwYnnsD0Hs-l20RgOaUVDpUjMfD4-SudrrVBS7a88NjnLsHP0l9ytXo4Yk4jFieJN6LmbJcz81-scDZElM-52uqakuNi8_UJqvR"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-secondary text-on-secondary rounded text-[10px] font-bold shadow-sm">
+              ROYAL PALACE
+            </span>
+            <div class="absolute top-3 right-3 pure-veg-symbol bg-surface/90"><div class="pure-veg-dot"></div></div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Mysore Masala Dosa</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹165</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant line-clamp-3">
+                Folded golden crepe smeared with fiery heritage red shallot-chilli podi paste and stuffed with gently spiced turmeric potato onion mash.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-primary font-bold">Fiery &amp; Savory</span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Mysore Masala Dosa', 165, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDD6N35127jxKJvABISOIi7-VLj-3JBWx0njF6NA2votUJo6e-tEC3PoLi66hAipg-nPONAo6NIYfPg2UwFTRuNoQv5AK7LlblJefw7NL4IWYc9KxJ6vVFX7lO3jO1bNUmkrNJ_6ig5fvN4Z-6j1uwYnnsD0Hs-l20RgOaUVDpUjMfD4-SudrrVBS7a88NjnLsHP0l9ytXo4Yk4jFieJN6LmbJcz81-scDZElM-52uqakuNi8_UJqvR', 'Dosa Special')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dosa 3: Kerala Appam with Stew -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="vegan,jain">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Traditional bowl-shaped Kerala Appams with coconut vegetable stew" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGXTf44viRF0EI2ncPbQD2ymlJypL5VokV2wfLJjj0m0JRPG5faKWNQu17HiW0-yFVHkW0RicZGq86FW6GxC9OP3AVg-XIFVnlK7PIRegdrFjcZBA2Uk3txbn2lK73w90nrPc-LJ91Kzg2by_416DwFgrn6Us95frXqYlsHwjL4mfWSc6dF-xNP-manlYDfX5f5tS8gjhQUOITjsItqtEja_NJKoGusjm45iNyF1bVlco_uQHorcQw"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-secondary text-on-secondary rounded text-[10px] font-bold shadow-sm">
+              COCONUT COAST
+            </span>
+            <div class="absolute top-3 right-3 pure-veg-symbol bg-surface/90"><div class="pure-veg-dot"></div></div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Kerala Appam &amp; Stew</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹145</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant line-clamp-3">
+                Two bowl-shaped lacy fermented rice crepes with pillowy cloud centers, served with aromatic cardamom-scented coconut vegetable stew.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-secondary font-bold">100% Vegan</span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Kerala Appam & Stew', 145, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBGXTf44viRF0EI2ncPbQD2ymlJypL5VokV2wfLJjj0m0JRPG5faKWNQu17HiW0-yFVHkW0RicZGq86FW6GxC9OP3AVg-XIFVnlK7PIRegdrFjcZBA2Uk3txbn2lK73w90nrPc-LJ91Kzg2by_416DwFgrn6Us95frXqYlsHwjL4mfWSc6dF-xNP-manlYDfX5f5tS8gjhQUOITjsItqtEja_NJKoGusjm45iNyF1bVlco_uQHorcQw', 'Kerala Special')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dosa 4: Sambar Mini Button Idlies -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="tiffin" data-tags="jain,chef">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Mini button idlies submerged in bubbling aromatic drumstick sambar" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIcS7fNLCP5ywwOfQAqIuY-wPrjdRiohrVyjqPfXReAtc4ZxArbJ8dafXAVW8hALuDKaVOwxCBL9UC11OfSlfbwWadUTDS9eWiCw1i16BDY1ubtIGXSrpg8S_F_Sz6sZPpSYdYEHGnyqTInK_z1gQaotBNZrlkbmJmGQrc16PEBnehImFi_mmuejQN-xjGDxTj3XDmav-E_c9Sqwx_6BnPVW00-1mSUb8RMzdYInKXvGo5uclBTpl8"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-primary text-on-primary rounded text-[10px] font-bold shadow-sm">
+              ALL-TIME FAV
+            </span>
+            <div class="absolute top-3 right-3 pure-veg-symbol bg-surface/90"><div class="pure-veg-dot"></div></div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Mini Ghee Sambar Idly</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹120</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant line-clamp-3">
+                14 mini button rice cakes submerged in bubbling shallot-drumstick sambar, crowned with a swirl of golden melted ghee and chopped fresh cilantro.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-secondary font-bold">14 Bite-Sized</span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Mini Ghee Sambar Idly (14 Pcs)', 120, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDIcS7fNLCP5ywwOfQAqIuY-wPrjdRiohrVyjqPfXReAtc4ZxArbJ8dafXAVW8hALuDKaVOwxCBL9UC11OfSlfbwWadUTDS9eWiCw1i16BDY1ubtIGXSrpg8S_F_Sz6sZPpSYdYEHGnyqTInK_z1gQaotBNZrlkbmJmGQrc16PEBnehImFi_mmuejQN-xjGDxTj3XDmav-E_c9Sqwx_6BnPVW00-1mSUb8RMzdYInKXvGo5uclBTpl8', 'Tiffin Special')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== MENU SECTION 2: ROYAL AFTERNOON THALIS ==================== -->
+    <section class="menu-category-block space-y-6 pt-8" id="section-thalis">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-outline-variant/40 pb-4 gap-2">
+        <div>
+          <span class="text-label-sm text-xs font-bold text-primary tracking-widest uppercase">Noon Feast 12:00 PM – 3:30 PM</span>
+          <h2 class="font-headline-lg text-2xl sm:text-3xl font-medium text-on-surface">Grand Plantain Leaf Royal Thalis</h2>
+        </div>
+        <p class="text-body-sm text-xs sm:text-sm text-on-surface-variant italic">Eighteen heirloom courses served with boundless South Indian hospitality.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Thali 1: Grand Dakshin Mahathali -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="thalis" data-tags="chef">
+          <div class="relative h-64 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Abundant South Indian banana leaf thali with 18 authentic courses" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2yL0EhtbZUkgZRDIUC8GXVoMUypJgrxHwfrBXtvI6zeE4zdAlb90YOWwAnKo5joMFnrLGFtkQWQ-FkuxzELc5sEvEvY5seGdadVA7465GX3GY76SHUsyKePWvFz8A-jRyjcR68DlVsOy4rxSP5I-GcJ-L5mHK6nhlQkEIujTCeq9ZGIdGRULiH81y4ugvjj4VR6XD-HJcliTuYv3gOS-JaRM9ocLqkSfePu6lt7RGDDkvDdFGICpM"/>
+            <span class="absolute top-4 left-4 px-3 py-1 bg-primary text-on-primary rounded-lg text-xs font-bold shadow-md">
+              ROYAL BANQUET
+            </span>
+            <div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-secondary flex items-center gap-1.5 shadow-sm">
+              <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div> 18 COURSES
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-2xl font-semibold text-on-surface group-hover:text-primary transition-colors">The Grand Dakshin Mahathali</h3>
+                <span class="font-headline-sm text-2xl font-bold text-primary">₹280</span>
+              </div>
+              <p class="mt-2 text-body-md text-sm text-on-surface-variant leading-relaxed">
+                An opulent coronation feast served on freshly misted plantain leaves. Includes Steamed Sona Masoori Rice, Malabar Drumstick Sambar, Pepper Rasam, Mor Kuzhambu, Avial, Poriyal, Kootu, Appalam, Vada, Curd, Homemade Pickles, and Hot Elaneer Payasam.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-on-surface-variant font-medium">Unlimited Refills (Dine-in)</span>
+              <button class="px-5 py-2.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all shadow-sm" onclick="addToCart('Grand Dakshin Mahathali', 280, 'https://lh3.googleusercontent.com/aida-public/AB6AXuD2yL0EhtbZUkgZRDIUC8GXVoMUypJgrxHwfrBXtvI6zeE4zdAlb90YOWwAnKo5joMFnrLGFtkQWQ-FkuxzELc5sEvEvY5seGdadVA7465GX3GY76SHUsyKePWvFz8A-jRyjcR68DlVsOy4rxSP5I-GcJ-L5mHK6nhlQkEIujTCeq9ZGIdGRULiH81y4ugvjj4VR6XD-HJcliTuYv3gOS-JaRM9ocLqkSfePu6lt7RGDDkvDdFGICpM', 'Royal Thali')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Thali 2: Temple Prasadam Sattvic Thali -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="thalis" data-tags="jain,chef">
+          <div class="relative h-64 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Temple Prasadam Thali prepared without onion and garlic on banana leaf" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwVBzfLpQOEeO2dEfMOGM3cNCMO8jk8EUTHtIqogFSPdMb11CxR-xQMZEKck8hlVS1Z6aJbqko2XOhwcKG1a4sXPPmfCXESXHXENxYr7iHq5ecn65wxoph-aZzMD_3uPAV-a3kU30rid3nUfsC9MRdxYHeP-XvrkKtIuMGpAdn4-h8A-zhqRghFXJCWbTezsJkeB6RcNcufi4IkUjADKKvRG4agop3OSscek3sb6yUycaRv9BhT6Mt"/>
+            <span class="absolute top-4 left-4 px-3 py-1 bg-secondary text-on-secondary rounded-lg text-xs font-bold shadow-md">
+              100% SATTVIC
+            </span>
+            <div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-primary shadow-sm">
+              No Onion • No Garlic
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-2xl font-semibold text-on-surface group-hover:text-primary transition-colors">Temple Prasadam Thali (Jain Friendly)</h3>
+                <span class="font-headline-sm text-2xl font-bold text-primary">₹240</span>
+              </div>
+              <p class="mt-2 text-body-md text-sm text-on-surface-variant leading-relaxed">
+                Prepared adhering to strict temple Agama principles: zero root vegetables, zero onion or garlic. Fragrant lemon rice, temple paruppu, raw banana varuval, sweet pongal, cumin rasam, and tender coconut pachadi.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-secondary font-bold">Strict Jain Protocol</span>
+              <button class="px-5 py-2.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all shadow-sm" onclick="addToCart('Temple Prasadam Thali', 240, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwVBzfLpQOEeO2dEfMOGM3cNCMO8jk8EUTHtIqogFSPdMb11CxR-xQMZEKck8hlVS1Z6aJbqko2XOhwcKG1a4sXPPmfCXESXHXENxYr7iHq5ecn65wxoph-aZzMD_3uPAV-a3kU30rid3nUfsC9MRdxYHeP-XvrkKtIuMGpAdn4-h8A-zhqRghFXJCWbTezsJkeB6RcNcufi4IkUjADKKvRG4agop3OSscek3sb6yUycaRv9BhT6Mt', 'Sattvic Thali')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== MENU SECTION 3: EVENING SAVORY SNACKS ==================== -->
+    <section class="menu-category-block space-y-6 pt-8" id="section-snacks">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-outline-variant/40 pb-4 gap-2">
+        <div>
+          <span class="text-label-sm text-xs font-bold text-primary tracking-widest uppercase">4 PM Tiffin Bells</span>
+          <h2 class="font-headline-lg text-2xl sm:text-3xl font-medium text-on-surface">Evening Crispy Snacks (Chaat &amp; Tiffin)</h2>
+        </div>
+        <p class="text-body-sm text-xs sm:text-sm text-on-surface-variant italic">Crisped on demand in pure cold-pressed native groundnut oil.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- CARD 1: Medu Vada -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-md" data-category="snacks" data-tags="vegan,jain">
+          <div>
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+                  <span class="text-label-sm text-[11px] text-on-surface-variant uppercase font-semibold">Urad Dal Fritters</span>
+                </div>
+                <h3 class="font-headline-sm text-xl font-semibold text-on-surface group-hover:text-primary transition-colors mt-1">Crispy Medu Vada (2 Pcs)</h3>
+              </div>
+              <span class="font-headline-sm text-xl font-bold text-primary">₹75</span>
+            </div>
+            <p class="mt-3 text-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Golden shatteringly crisp on the outside, fluffy cloud on the inside lentil donuts seasoned with coarse peppercorns, fresh grated coconut slivers, curry leaves, and ginger. Accompanied by cold coconut chutney.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant font-medium">Crunch: ★★★★★</span>
+            <button class="px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Crispy Medu Vada (2 Pcs)', 75, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBqBFz2uGdhE97wXrKs7IciIy7o07Q68N0OVEAi1wrO7Be6ncE2IuIw944DSKHi4mG4KmHAC6DU210pGQxIVwJ_zo-Y21ztjCHi6OxdHLmbpleO9iG9OG0-NvpiTVie4OUiTOUXJX0jn5XTV4bLtMHGaBnMOyITGMPrf2z9LV1tJaEu3tvVosTyhXS4GuX74AoZtjFVe-fs--DtEBs9ot-r9f5TyRJN2iIvwTzCJuXUbY0dHtc62-37', 'Hot Snacks')">
+              Add to Order
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 2: Assorted Hot Bajji Platter -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-md" data-category="snacks" data-tags="vegan">
+          <div>
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+                  <span class="text-label-sm text-[11px] text-primary uppercase font-bold">MONSOON SPECIAL</span>
+                </div>
+                <h3 class="font-headline-sm text-xl font-semibold text-on-surface group-hover:text-primary transition-colors mt-1">Assorted Hot Bajji Platter</h3>
+              </div>
+              <span class="font-headline-sm text-xl font-bold text-primary">₹95</span>
+            </div>
+            <p class="mt-3 text-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Deep-fried spiced gram flour fritters featuring raw plantain (Vazhakkai), large Mysore mild mirchi peppers, and potato slices. Served hot with spicy pudina mint chutney and garlic-free relish.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="text-xs text-primary font-medium">Spiced Batter</span>
+            <button class="px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Assorted Hot Bajji Platter', 95, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQqSZN8i4ZiLcXMsjKH2RIoIpmRJm0YGlcTdX1P60EGFz6HrS5e6OWVuU3BcfAVMvVsOc_UNUaI9xJ_txWilo5tp1ycffXpuooAH6M2Mb-xvZXb9BbH5_Lo6DXGoX0akP7P7u-4T7ZVOVHiD0ZaSBw-BExCOdNvIclMs_CObx1YQw24iGAghAPmXtgD8Ot1NbriiYkY0v4tbdxeK8IvWKJqBIx-Q9UNbqa_fq5y-hlFrBMv25HBSw1', 'Hot Snacks')">
+              Add to Order
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 3: Crispy Mysore Bonda -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-md" data-category="snacks" data-tags="jain">
+          <div>
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+                  <span class="text-label-sm text-[11px] text-on-surface-variant uppercase font-semibold">Karnataka Specialty</span>
+                </div>
+                <h3 class="font-headline-sm text-xl font-semibold text-on-surface group-hover:text-primary transition-colors mt-1">Crispy Mysore Bonda (4 Pcs)</h3>
+              </div>
+              <span class="font-headline-sm text-xl font-bold text-primary">₹70</span>
+            </div>
+            <p class="mt-3 text-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Golden-crusted sphere fritters crafted with beaten curd, flour, roasted cumin, and shredded dried coconut chunks. Tender, chewy, and exquisitely aromatic when dipped into red chutney.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="text-xs text-secondary font-bold">Jain Friendly</span>
+            <button class="px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Crispy Mysore Bonda (4 Pcs)', 70, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAa302glgY7u7tCphZdhWYnjLuQUCdqW4e0HI88nX6KOeoZ5hQHgvaLeD4JEeRSl3s_d2q41WfCX0hQhiMhHI7_It2QA0SiTtEFioTDVpCZ783qZZZyNXkQeImuQTVEIZo3qrJxCYTvuZ3MmZWSFC-SfKxckaRjHKxjOrwGI2TmtkWazcPpH4V_M-l3sF4Vz8wpwMBVKwgqatMks1Vo61heFMEwU2UlOKwAlgr27Nz9kkFaY23GCaAe', 'Hot Snacks')">
+              Add to Order
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== MENU SECTION 4: FILTER KAAPI & BEVERAGES ==================== -->
+    <section class="menu-category-block space-y-6 pt-8" id="section-drinks">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-outline-variant/40 pb-4 gap-2">
+        <div>
+          <span class="text-label-sm text-xs font-bold text-primary tracking-widest uppercase">Artisan Decoctions &amp; Spiced Brews</span>
+          <h2 class="font-headline-lg text-2xl sm:text-3xl font-medium text-on-surface">Traditional Hot Drinks &amp; Filter Kaapi</h2>
+        </div>
+        <p class="text-body-sm text-xs sm:text-sm text-on-surface-variant italic">Aerated meter-high into authentic hand-beaten brass Davarah and Tumbler.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- DRINK 1: South Indian Meter Filter Coffee -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="drinks" data-tags="chef,jain">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Meter Filter Coffee with velvety froth in brass dabarah and tumbler" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCpkLEtAMUlSGaMM-QzdngT6N8vNx7mK8PQNhkTYbb9i_JU9OJbVu7xo9esOnm8YjUMlITdZJsIlVwjclaNhHn9oP2ME6uUbmhVMo0AnpXghtm8nPRh8ZYd-mo9Mo-fLwAjzC6bZViMSd-5VOtGYY4YJpD3alnSEJuhNdd0QABobH_dLBcNtJXH2Y7IKerf9X_2sqBFtYljUiT_rHSPNGNj-D8tBdFvLYlPyHaREqSL6ET9T2rmVNF"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-primary text-on-primary rounded text-[10px] font-bold shadow-sm">
+              SIGNATURE MUST-HAVE
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Meter Filter Kaapi</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹55</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant leading-relaxed">
+                Freshly brewed 85:15 Peaberry &amp; Chicory decoction whipped with frothy, high-fat boiled farm milk. Served steaming hot in traditional hand-beaten brass Davarah.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-tertiary font-bold flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">local_cafe</span> Served in Brass
+              </span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Meter Filter Kaapi', 55, 'https://lh3.googleusercontent.com/aida-public/AB6AXuCCpkLEtAMUlSGaMM-QzdngT6N8vNx7mK8PQNhkTYbb9i_JU9OJbVu7xo9esOnm8YjUMlITdZJsIlVwjclaNhHn9oP2ME6uUbmhVMo0AnpXghtm8nPRh8ZYd-mo9Mo-fLwAjzC6bZViMSd-5VOtGYY4YJpD3alnSEJuhNdd0QABobH_dLBcNtJXH2Y7IKerf9X_2sqBFtYljUiT_rHSPNGNj-D8tBdFvLYlPyHaREqSL6ET9T2rmVNF', 'Hot Kaapi')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- DRINK 2: Masala Chai / Ginger Elaichi Tea -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="drinks" data-tags="jain">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Ginger cardamom masala chai poured into clay kulhad" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2aZoQLS_sgf1sMsILLSMVcGymZFz7Z64JjAoyWsm8CwckVpppd1OPhPilFqmMYw3lH3DGaI3BfQoFEfWW8I9tcplxvkRahjPffi2qmG0SuW41dyxcYObyNeIEAgQRhzMcBCkoPfxFZHj3sPxiQsQXwXbfG5isiE2IGs3xRr50bkyTb3_p7QqPBO4_kbjkqhpcxn09KcAGTsSYsyngoCeXAUJv4WNqU8Po2Wv8tLfEpaDz8VXacqDb"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-surface/90 text-on-surface rounded text-[10px] font-bold shadow-sm">
+              HAND POUNDED
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Inji Elaichi Masala Chai</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹45</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant leading-relaxed">
+                Slow-simmered strong Assam tea leaves steeped with freshly crushed wet ginger, aromatic Wayanad green cardamom, cloves, and whole milk.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-on-surface-variant font-medium">Ayurvedic Warmth</span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Inji Elaichi Chai', 45, 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2aZoQLS_sgf1sMsILLSMVcGymZFz7Z64JjAoyWsm8CwckVpppd1OPhPilFqmMYw3lH3DGaI3BfQoFEfWW8I9tcplxvkRahjPffi2qmG0SuW41dyxcYObyNeIEAgQRhzMcBCkoPfxFZHj3sPxiQsQXwXbfG5isiE2IGs3xRr50bkyTb3_p7QqPBO4_kbjkqhpcxn09KcAGTsSYsyngoCeXAUJv4WNqU8Po2Wv8tLfEpaDz8VXacqDb', 'Hot Beverage')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- DRINK 3: Sukku Malli Herbal Coffee -->
+        <article class="bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col group shadow-sm hover:shadow-md" data-category="drinks" data-tags="vegan,jain">
+          <div class="relative h-44 overflow-hidden bg-surface-container">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                 alt="Medicinal Sukku Malli herbal brew in terracotta mug" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSqnThV2eE0sjMOSpnJc_acxYw4WOjmhAZhEl9KQR7FGK9xjEm-321Lu7KsIRA-rZP8nxf9d6XLPX2QyCKodIKWhH_8rghZI6m7h7FUyIAu3ttstDBiJN3_FqqN_G1yGpDdqee0EaMjGjPcGAWhtpNMGuAqPwYTm-k4GUDsgrS7FHA0Aq8GrcTcI4l-OSIEI-DiP8rYi-EMDDxOcSoYRlgV3bx1FQxJd-Q0B50N1XiuR_9AXymD9Xn"/>
+            <span class="absolute top-3 left-3 px-2 py-0.5 bg-secondary text-on-secondary rounded text-[10px] font-bold shadow-sm">
+              CAFFEINE FREE
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-headline-sm text-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Sukku Malli Herbal Brew</h3>
+                <span class="font-headline-sm text-lg font-bold text-primary">₹50</span>
+              </div>
+              <p class="mt-2 text-body-sm text-xs text-on-surface-variant leading-relaxed">
+                Sun-dried ginger (sukku) and cracked coriander seeds (malli) boiled with unrefined organic palm jaggery. An energizing digestive herbal tonic.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+              <span class="text-xs text-secondary font-bold">100% Herbal &amp; Vegan</span>
+              <button class="px-3 py-1.5 bg-primary hover:bg-tertiary text-on-primary rounded-lg text-xs font-bold active:scale-95 transition-all" onclick="addToCart('Sukku Malli Herbal Brew', 50, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSqnThV2eE0sjMOSpnJc_acxYw4WOjmhAZhEl9KQR7FGK9xjEm-321Lu7KsIRA-rZP8nxf9d6XLPX2QyCKodIKWhH_8rghZI6m7h7FUyIAu3ttstDBiJN3_FqqN_G1yGpDdqee0EaMjGjPcGAWhtpNMGuAqPwYTm-k4GUDsgrS7FHA0Aq8GrcTcI4l-OSIEI-DiP8rYi-EMDDxOcSoYRlgV3bx1FQxJd-Q0B50N1XiuR_9AXymD9Xn', 'Herbal Brew')">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-surface-container-high border-t border-outline-variant/40 mt-16">
+    <div class="w-full px-6 md:px-12 py-16 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-md text-2xl font-semibold text-primary">Welcome Restaurant</span>
+            <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          </div>
+          <p class="font-body-sm text-sm text-on-surface-variant max-w-sm leading-relaxed">
+            Preserving South India's grand temple culinary heritage with uncompromised vegetarian fidelity. Every single dosa, idly, and coffee crafted with pure A2 butter, hand-filtered water, and generational devotion.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-headline-sm text-lg text-primary font-bold">Dining Sessions</h4>
+          <ul class="space-y-2 font-body-sm text-xs text-on-surface-variant">
+            <li><strong class="font-semibold text-on-surface">Breakfast Tiffin:</strong><br/> 7:00 AM – 11:00 AM</li>
+            <li><strong class="font-semibold text-on-surface">Grand Lunch Thali:</strong><br/> 12:00 PM – 3:30 PM</li>
+            <li><strong class="font-semibold text-on-surface">Evening Tiffin:</strong><br/> 4:00 PM – 7:00 PM</li>
+            <li><strong class="font-semibold text-on-surface">Dinner Feast:</strong><br/> 7:00 PM – 10:30 PM</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-headline-sm text-lg text-primary font-bold">Heritage &amp; Menus</h4>
+          <ul class="space-y-2 font-label-md text-xs">
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Our 1982 Heritage</a></li>
+            <li><a class="text-primary font-bold" href="menus.html">Signature Menus</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html#pillars">The 3 Sacred Pillars</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Pure Veg Certification</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-headline-sm text-lg text-primary font-bold">Visit &amp; Connect</h4>
+          <ul class="space-y-2 font-label-md text-xs">
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Mylapore, Chennai</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Indiranagar, Bengaluru</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">RS Puram, Coimbatore</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html#banquet">Catering &amp; Banquets</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-10 mt-10 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-center gap-4 text-on-surface-variant font-body-sm text-xs">
+        <p>© 2026 Welcome Restaurant. Authentic South Indian Pure Vegetarian Dining. All Rights Reserved.</p>
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5 text-secondary font-semibold">
+            <span class="material-symbols-outlined text-sm">restaurant</span>
+            Pure Sattvic Kitchen
+          </span>
+          <span>Chennai • Bengaluru • Coimbatore</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SHARED CART SLIDE-OVER DRAWER ==================== -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+    <div onclick="closeCartDrawer()" class="drawer-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="drawer-panel w-screen max-w-md bg-surface-container-lowest border-l border-outline-variant/50 shadow-2xl flex flex-col translate-x-full transition-transform">
+        <div class="p-5 border-b border-outline-variant/30 flex items-center justify-between bg-surface-container-low">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-lg">shopping_bag</span>
+            </div>
+            <div>
+              <h3 class="font-headline-sm text-base font-bold text-on-surface">Your Dining Bag</h3>
+              <p class="font-body-sm text-[11px] text-on-surface-variant">Pure Vegetarian • Freshly Prepared</p>
+            </div>
+          </div>
+          <button onclick="closeCartDrawer()" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-5 space-y-3">
+          <div id="cart-drawer-items" class="space-y-3"></div>
+          <div id="cart-drawer-empty" class="hidden text-center py-16 space-y-4">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high mx-auto flex items-center justify-center text-on-surface-variant/50">
+              <span class="material-symbols-outlined text-3xl">shopping_basket</span>
+            </div>
+            <h4 class="font-headline-sm text-base text-on-surface font-semibold">Your bag is empty</h4>
+          </div>
+        </div>
+
+        <div class="p-5 border-t border-outline-variant/30 bg-surface-container-low space-y-3">
+          <div class="space-y-1.5 text-xs text-on-surface-variant">
+            <div class="flex justify-between"><span>Item Subtotal</span><span id="cart-drawer-subtotal" class="font-semibold text-on-surface">₹0</span></div>
+            <div class="flex justify-between"><span>GST (5%)</span><span id="cart-drawer-tax" class="font-semibold text-on-surface">₹0</span></div>
+            <div class="flex justify-between"><span>Express Delivery</span><span id="cart-drawer-delivery" class="font-semibold text-secondary">FREE</span></div>
+            <div class="border-t border-outline-variant/40 pt-2 flex justify-between text-base font-bold text-on-surface"><span>Grand Total</span><span id="cart-drawer-total" class="text-primary font-headline-sm text-lg">₹0</span></div>
+          </div>
+          <button id="cart-drawer-checkout-btn" onclick="openCheckoutModal()" class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-lg font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2">
+            <span>Proceed to Checkout</span>
+            <span class="material-symbols-outlined text-sm">check_circle</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CHECKOUT MODAL ==================== -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-lg bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-2xl p-6 space-y-5 scale-95 opacity-0 transition-all">
+      <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          <h3 class="font-headline-sm text-lg font-bold text-on-surface">Complete Your Pure Veg Order</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-on-surface-variant hover:text-on-surface p-1">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div id="checkout-modal-summary" class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30"></div>
+
+      <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+        <div class="space-y-1">
+          <label class="font-label-md text-xs font-semibold text-on-surface">Dining Service Mode</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 p-2.5 rounded-lg border border-outline-variant/50 cursor-pointer hover:bg-surface-container-low">
+              <input type="radio" name="orderType" value="delivery" checked class="text-primary focus:ring-primary"/>
+              <span class="text-xs font-medium text-on-surface">Home Delivery</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-lg border border-outline-variant/50 cursor-pointer hover:bg-surface-container-low">
+              <input type="radio" name="orderType" value="dinein" class="text-primary focus:ring-primary"/>
+              <span class="text-xs font-medium text-on-surface">Table Dine-in</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Full Name</label>
+            <input name="customerName" required placeholder="e.g. Sundaram Iyer" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Mobile Number</label>
+            <input name="customerPhone" required placeholder="+91 98400 12345" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="tel"/>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-label-md text-xs font-semibold text-on-surface">Delivery Address / Table #</label>
+          <textarea name="customerAddress" rows="2" placeholder="e.g. 14 North Mada Street, Mylapore" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-label-md text-xs font-semibold text-on-surface">Payment Method</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="flex flex-col items-center justify-center p-2 rounded-lg border border-outline-variant/50 text-center cursor-pointer hover:border-primary">
+              <input type="radio" name="paymentMethod" value="upi" checked class="text-primary focus:ring-primary"/>
+              <span class="text-[11px] font-bold mt-1">UPI / QR</span>
+            </label>
+            <label class="flex flex-col items-center justify-center p-2 rounded-lg border border-outline-variant/50 text-center cursor-pointer hover:border-primary">
+              <input type="radio" name="paymentMethod" value="card" class="text-primary focus:ring-primary"/>
+              <span class="text-[11px] font-bold mt-1">Card</span>
+            </label>
+            <label class="flex flex-col items-center justify-center p-2 rounded-lg border border-outline-variant/50 text-center cursor-pointer hover:border-primary">
+              <input type="radio" name="paymentMethod" value="cash" class="text-primary focus:ring-primary"/>
+              <span class="text-[11px] font-bold mt-1">Cash</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-lg font-bold text-sm shadow-md transition-all active:scale-95">
+          Place Order &amp; Start Preparation
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== ORDER SUCCESS MODAL ==================== -->
+  <div id="order-success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-md bg-surface-container-lowest rounded-2xl border border-secondary/40 shadow-2xl p-6 text-center space-y-4 scale-95 opacity-0 transition-all">
+      <div class="w-16 h-16 rounded-full bg-secondary-container/40 text-secondary mx-auto flex items-center justify-center">
+        <span class="material-symbols-outlined text-3xl">celebration</span>
+      </div>
+      <div>
+        <span class="font-label-sm text-xs uppercase tracking-widest text-secondary font-bold">Order Received</span>
+        <h3 class="font-headline-lg text-2xl font-bold text-on-surface mt-1">Feast in the Making!</h3>
+        <p class="font-body-sm text-xs text-on-surface-variant mt-1">
+          Our master chefs have begun stone-grinding and roasting with pure A2 cow ghee.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl p-4 text-left space-y-1.5 border border-outline-variant/40 text-xs">
+        <div class="flex justify-between"><span class="text-on-surface-variant">Order Reference:</span><span id="success-order-id" class="font-bold text-primary">WR-849201</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Recipient:</span><span id="success-order-name" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Mobile:</span><span id="success-order-phone" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Mode:</span><span id="success-order-type" class="font-semibold text-secondary">Express Delivery</span></div>
+        <div class="flex justify-between border-t border-outline-variant/40 pt-1 mt-1"><span class="text-on-surface font-bold">Amount:</span><span id="success-order-amount" class="font-bold text-primary text-sm">₹0</span></div>
+      </div>
+
+      <button onclick="closeOrderSuccessModal()" class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md text-xs font-bold hover:bg-tertiary transition-all">
+        Wonderful, Thank You!
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== RESERVATION MODAL ==================== -->
+  <div id="reservation-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-lg bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-2xl p-6 space-y-4 scale-95 opacity-0 transition-all">
+      <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          <h3 class="font-headline-sm text-lg font-bold text-on-surface">Reserve Your Dining Table</h3>
+        </div>
+        <button onclick="closeReservationModal()" class="text-on-surface-variant hover:text-on-surface p-1">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="handleReservationSubmit(event)" class="space-y-3.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Full Name</label>
+            <input name="guestName" required placeholder="e.g. Sundaram Iyer" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Phone Number</label>
+            <input name="guestPhone" required placeholder="+91 98400 12345" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="tel"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Guests</label>
+            <select name="guestCount" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Guests</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Date</label>
+            <input name="reserveDate" required class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="date" value="2026-10-20"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Session</label>
+            <select name="serviceSession" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+              <option>Breakfast Tiffin (8am - 10:30am)</option>
+              <option selected>Royal Lunch Thali (12:30pm - 2:30pm)</option>
+              <option>Evening Tiffin (4:30pm - 6:30pm)</option>
+              <option>Dinner Feast (7:30pm - 10pm)</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Dining Area</label>
+            <select name="diningZone" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+              <option>Banana Leaf Traditional Hall</option>
+              <option>AC Family Salon</option>
+              <option>Open Verandah Courtyard</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-lg font-bold text-sm shadow-md transition-all active:scale-95">
+          Confirm Table Booking
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== BOOKING SUCCESS MODAL ==================== -->
+  <div id="booking-success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-md bg-surface-container-lowest rounded-2xl border border-secondary/40 shadow-2xl p-6 text-center space-y-4 scale-95 opacity-0 transition-all">
+      <div class="w-16 h-16 rounded-full bg-secondary-container/40 text-secondary mx-auto flex items-center justify-center">
+        <span class="material-symbols-outlined text-3xl">event_seat</span>
+      </div>
+      <div>
+        <span class="font-label-sm text-xs uppercase tracking-widest text-secondary font-bold">Booking Confirmed</span>
+        <h3 class="font-headline-lg text-2xl font-bold text-on-surface mt-1">Table Awaiting You!</h3>
+        <p class="font-body-sm text-xs text-on-surface-variant mt-1">
+          Your banana leaf table is secured.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl p-4 text-left space-y-1.5 border border-outline-variant/40 text-xs">
+        <div class="flex justify-between"><span class="text-on-surface-variant">Booking Reference:</span><span id="booking-ref-code" class="font-bold text-primary">WR-RES-5192</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Guest Name:</span><span id="booking-guest-name" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Party Size:</span><span id="booking-guests-count" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Date &amp; Session:</span><span id="booking-date-session" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Seating:</span><span id="booking-zone" class="font-semibold text-secondary">-</span></div>
+      </div>
+
+      <button onclick="closeBookingSuccessModal()" class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md text-xs font-bold hover:bg-tertiary transition-all">
+        Done &amp; Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE NAVIGATION DRAWER ==================== -->
+  <div id="mobile-nav-drawer" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+    <div onclick="closeMobileMenu()" class="mobile-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div class="fixed inset-y-0 left-0 max-w-full flex">
+      <div class="mobile-panel w-72 bg-surface-container-lowest border-r border-outline-variant/50 shadow-2xl flex flex-col -translate-x-full transition-transform p-6 space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-sm text-lg font-bold text-primary">Welcome Restaurant</span>
+            <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          </div>
+          <button onclick="closeMobileMenu()" class="p-1 text-on-surface-variant hover:text-on-surface">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-3 font-label-lg text-sm">
+          <a class="px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="index.html">Home</a>
+          <a class="px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="about.html">Our Story &amp; Heritage</a>
+          <a class="px-3 py-2 rounded-lg bg-primary/10 text-primary font-bold" href="menus.html">Signature Menus</a>
+          <a class="px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="contact.html">Contact &amp; Reservation</a>
+        </nav>
+
+        <div class="pt-4 border-t border-outline-variant/30 space-y-3">
+          <button onclick="closeMobileMenu(); openReservationModal();" class="w-full py-2.5 px-4 rounded-lg bg-primary text-on-primary font-label-md text-xs font-bold flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-sm">event_seat</span>
+            <span>Reserve Table</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>

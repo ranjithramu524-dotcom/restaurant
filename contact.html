@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contact &amp; Table Reservation | Welcome Restaurant Pure Veg</title>
+  <meta name="description" content="Reserve your table at Welcome Restaurant for traditional banana leaf thalis, breakfast tiffins, and private satvik banquets in Chennai, Bengaluru, and Coimbatore."/>
+  
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#9e3d00",
+            "primary-container": "#c64f00",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "secondary": "#2c694e",
+            "secondary-container": "#aeeecb",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#316e52",
+            "tertiary": "#9a401b",
+            "tertiary-container": "#ba5831",
+            "on-tertiary": "#ffffff",
+            "background": "#fff8f5",
+            "on-background": "#1e1b19",
+            "surface": "#fff8f5",
+            "on-surface": "#1e1b19",
+            "surface-dim": "#e0d8d5",
+            "surface-bright": "#fff8f5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#faf2ee",
+            "surface-container": "#f4ece8",
+            "surface-container-high": "#eee7e3",
+            "surface-container-highest": "#e9e1dd",
+            "on-surface-variant": "#594238",
+            "outline": "#8c7166",
+            "outline-variant": "#e0c0b2"
+          },
+          fontFamily: {
+            "display-lg": ["Newsreader", "serif"],
+            "headline-lg": ["Newsreader", "serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "headline-sm": ["Newsreader", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="bg-surface/95 backdrop-blur-md text-primary docked full-width top-0 sticky z-40 border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+    <div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-20">
+      
+      <!-- Brand Logo -->
+      <a class="flex items-center gap-3 group focus:outline-none rounded-lg p-1" href="index.html">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-md text-2xl md:text-3xl font-semibold text-primary tracking-tight">
+              Welcome Restaurant
+            </span>
+            <div class="pure-veg-symbol" title="100% Pure Vegetarian">
+              <div class="pure-veg-dot"></div>
+            </div>
+          </div>
+          <span class="font-label-sm text-[11px] tracking-widest text-secondary font-bold uppercase">
+            Pure Veg Heritage • Estd. 1982
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 font-label-lg text-sm font-medium">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="index.html">
+          Home
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="about.html">
+          Our Story
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="menus.html">
+          Signature Menus
+        </a>
+        <a class="text-primary border-b-2 border-primary pb-1 font-semibold transition-all" href="contact.html">
+          Contact &amp; Reservation
+        </a>
+      </nav>
+
+      <!-- Trailing Action Buttons -->
+      <div class="flex items-center gap-3 md:gap-4">
+        <button onclick="openCartDrawer()" aria-label="Shopping Cart" class="cart-toggle-btn relative p-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all focus:outline-none" type="button">
+          <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+          <span class="cart-counter-badge absolute top-1.5 right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center ring-2 ring-surface">0</span>
+        </button>
+
+        <a class="hidden sm:inline-flex items-center justify-center font-label-md text-xs px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/5 active:scale-95 transition-all duration-150 font-semibold" href="menus.html">
+          Order Online
+        </a>
+
+        <a class="inline-flex items-center gap-1.5 font-label-md text-xs px-4 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-tertiary shadow-sm active:scale-95 transition-all duration-150 font-semibold" href="#reservation-widget">
+          <span class="material-symbols-outlined text-base">table_restaurant</span>
+          <span>Reserve Table</span>
+        </a>
+
+        <button onclick="openMobileMenu()" class="md:hidden p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container focus:outline-none">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Top Editorial Header & Trust Strip -->
+    <section class="bg-surface-container-low pt-12 pb-10 border-b border-outline-variant/30 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/50 border border-secondary/20 mb-4 text-xs font-bold text-secondary uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            <span>Sanctuary of Satvik Hospitality</span>
+          </div>
+          <h1 class="font-display-lg text-3xl sm:text-5xl text-on-surface tracking-tight leading-tight font-medium">
+            Reserve Your Pure Dining Experience or Connect With Us
+          </h1>
+          <p class="mt-4 font-body-lg text-base sm:text-lg text-on-surface-variant leading-relaxed">
+            From leisurely Sunday temple thalis to sacred family assemblies and traditional filter coffee conversations, allow our warm hosts to prepare your table with customary grace.
+          </p>
+        </div>
+
+        <!-- Trust Badges Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-outline-variant/30">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-secondary border border-outline-variant/40 shadow-sm shrink-0">
+              <span class="material-symbols-outlined text-xl">verified</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">100% Pure Veg</p>
+              <p class="text-[11px] text-on-surface-variant">Zero animal products</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-primary border border-outline-variant/40 shadow-sm shrink-0">
+              <span class="material-symbols-outlined text-xl">spa</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">Jain Friendly</p>
+              <p class="text-[11px] text-on-surface-variant">Dedicated rootless cuisine</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-tertiary border border-outline-variant/40 shadow-sm shrink-0">
+              <span class="material-symbols-outlined text-xl">local_parking</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">Valet Parking</p>
+              <p class="text-[11px] text-on-surface-variant">Complimentary safe transit</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-secondary border border-outline-variant/40 shadow-sm shrink-0">
+              <span class="material-symbols-outlined text-xl">schedule</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">Instant Guarantee</p>
+              <p class="text-[11px] text-on-surface-variant">SMS &amp; WhatsApp alerts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Split Section: Booking Engine & Restaurant Hub -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16" id="reservation-widget">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT COLUMN: RESERVATION BOOKING WIDGET (7 Cols) -->
+        <div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant/50 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg">
+          <div class="flex items-center justify-between border-b border-outline-variant/30 pb-5 mb-8">
+            <div>
+              <span class="text-label-md text-xs text-primary uppercase font-bold tracking-wider">Direct Table Booking</span>
+              <h2 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-medium">Table Reservation</h2>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant text-xs font-medium border border-outline-variant/40">
+              <span class="material-symbols-outlined text-secondary text-base">table_restaurant</span>
+              <span>Kitchen Direct</span>
+            </div>
+          </div>
+
+          <form onsubmit="handleReservationSubmit(event)" class="space-y-6">
+            
+            <!-- 1. Party Size Selector -->
+            <div>
+              <label class="block font-label-lg text-xs font-bold text-on-surface uppercase tracking-wider mb-2.5">
+                1. Select Party Size
+              </label>
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                <label class="p-2.5 rounded-lg border border-outline-variant/60 text-center font-label-md text-xs font-bold text-on-surface cursor-pointer hover:border-primary has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all">
+                  <input type="radio" name="guestCount" value="1 Guest" class="sr-only"/>
+                  <span>1 Guest</span>
+                </label>
+                <label class="p-2.5 rounded-lg border border-outline-variant/60 text-center font-label-md text-xs font-bold text-on-surface cursor-pointer hover:border-primary has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all">
+                  <input type="radio" name="guestCount" value="2 Guests" checked class="sr-only"/>
+                  <span>2 Guests</span>
+                </label>
+                <label class="p-2.5 rounded-lg border border-outline-variant/60 text-center font-label-md text-xs font-bold text-on-surface cursor-pointer hover:border-primary has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all">
+                  <input type="radio" name="guestCount" value="4 Guests" class="sr-only"/>
+                  <span>4 Guests</span>
+                </label>
+                <label class="p-2.5 rounded-lg border border-outline-variant/60 text-center font-label-md text-xs font-bold text-on-surface cursor-pointer hover:border-primary has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all">
+                  <input type="radio" name="guestCount" value="6 Guests" class="sr-only"/>
+                  <span>6 Guests</span>
+                </label>
+                <label class="p-2.5 rounded-lg border border-outline-variant/60 text-center font-label-md text-xs font-bold text-on-surface cursor-pointer hover:border-primary has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all">
+                  <input type="radio" name="guestCount" value="8 Guests" class="sr-only"/>
+                  <span>8 Guests</span>
+                </label>
+                <label class="p-2.5 rounded-lg border border-outline-variant/60 text-center font-label-md text-xs font-bold text-on-surface cursor-pointer hover:border-primary has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all">
+                  <input type="radio" name="guestCount" value="12+ Guests" class="sr-only"/>
+                  <span>12+ Banquet</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 2. Date & Service Window -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+              <div class="sm:col-span-5 space-y-1.5">
+                <label class="block font-label-lg text-xs font-bold text-on-surface uppercase tracking-wider">
+                  2. Date of Visit
+                </label>
+                <input name="reserveDate" required class="w-full rounded-lg bg-surface border border-outline-variant/60 py-2.5 px-3 text-xs text-on-surface font-body-sm focus:border-primary focus:ring-1 focus:ring-primary" type="date" value="2026-10-20"/>
+              </div>
+
+              <div class="sm:col-span-7 space-y-1.5">
+                <label class="block font-label-lg text-xs font-bold text-on-surface uppercase tracking-wider">
+                  3. Dining Slot
+                </label>
+                <select name="serviceSession" class="w-full rounded-lg bg-surface border border-outline-variant/60 py-2.5 px-3 text-xs text-on-surface font-body-sm focus:border-primary focus:ring-1 focus:ring-primary">
+                  <option>Breakfast Tiffin (7:00 AM – 11:00 AM)</option>
+                  <option selected>Royal Lunch Thali (12:00 PM – 3:30 PM)</option>
+                  <option>Evening Tiffin (4:00 PM – 7:00 PM)</option>
+                  <option>Dinner Feast (7:00 PM – 10:30 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 3. Seating Preference -->
+            <div>
+              <label class="block font-label-lg text-xs font-bold text-on-surface uppercase tracking-wider mb-2">
+                4. Seating Atmosphere Preference
+              </label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="p-3 rounded-xl border border-outline-variant/60 cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all flex flex-col justify-between">
+                  <input type="radio" name="diningZone" value="Traditional Banana Leaf Hall" checked class="sr-only"/>
+                  <span class="material-symbols-outlined text-primary mb-1">temple_hindu</span>
+                  <span class="font-bold text-xs text-on-surface">Banana Leaf Hall</span>
+                  <span class="text-[11px] text-on-surface-variant mt-0.5">Classic temple-style long tables</span>
+                </label>
+
+                <label class="p-3 rounded-xl border border-outline-variant/60 cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all flex flex-col justify-between">
+                  <input type="radio" name="diningZone" value="Air-Conditioned Family Salon" class="sr-only"/>
+                  <span class="material-symbols-outlined text-on-surface-variant mb-1">ac_unit</span>
+                  <span class="font-bold text-xs text-on-surface">AC Family Salon</span>
+                  <span class="text-[11px] text-on-surface-variant mt-0.5">Quiet brass chandelier salon</span>
+                </label>
+
+                <label class="p-3 rounded-xl border border-outline-variant/60 cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all flex flex-col justify-between">
+                  <input type="radio" name="diningZone" value="Verandah Open Courtyard" class="sr-only"/>
+                  <span class="material-symbols-outlined text-on-surface-variant mb-1">deck</span>
+                  <span class="font-bold text-xs text-on-surface">Verandah Courtyard</span>
+                  <span class="text-[11px] text-on-surface-variant mt-0.5">Lush banana grove &amp; fountain</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 4. Dietary Requirements -->
+            <div class="space-y-1.5">
+              <label class="block font-label-lg text-xs font-bold text-on-surface uppercase tracking-wider">
+                5. Dietary Protocol / Notes
+              </label>
+              <textarea name="dietaryNotes" rows="2" placeholder="Kindly specify Jain food (no onion, garlic, root vegetables), vegan preference, infant high-chairs, or anniversary celebrations..." class="w-full bg-surface border border-outline-variant/60 rounded-lg p-3 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
+            </div>
+
+            <!-- 5. Guest Contact Details -->
+            <div class="border-t border-outline-variant/30 pt-4 space-y-3">
+              <label class="block font-label-lg text-xs font-bold text-on-surface uppercase tracking-wider">
+                6. Primary Guest Contact Details
+              </label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <input name="guestName" required placeholder="Full Name *" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="text"/>
+                <input name="guestPhone" required placeholder="Mobile Phone (WhatsApp) *" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="tel"/>
+                <input name="guestEmail" placeholder="Email (Optional)" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="email"/>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-4 px-6 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-lg font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">check_circle</span>
+              <span>Confirm Instant Table Booking</span>
+            </button>
+
+            <p class="text-center text-xs text-on-surface-variant flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-sm">lock</span>
+              <span>Zero reservation charges • Instant SMS &amp; WhatsApp verification</span>
+            </p>
+          </form>
+        </div>
+
+        <!-- RIGHT COLUMN: RESTAURANT LOCATIONS & BANQUET INQUIRIES (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Live Operating Status Card -->
+          <div class="bg-surface-container border border-outline-variant/60 rounded-2xl p-6 shadow-sm">
+            <div class="flex items-center justify-between pb-4 border-b border-outline-variant/40">
+              <div class="flex items-center gap-2.5">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+                </span>
+                <span class="text-xs font-bold text-secondary uppercase tracking-wider">Kitchen Active</span>
+              </div>
+              <span class="text-[11px] px-2.5 py-1 rounded bg-surface border border-outline-variant/40 text-on-surface font-semibold">
+                Filter Kaapi Brewed Fresh
+              </span>
+            </div>
+
+            <p class="mt-3 font-headline-sm text-lg text-on-surface font-semibold">
+              Currently Serving: Royal Lunch Thalis &amp; Tiffins
+            </p>
+            <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">
+              Steaming jasmine idlies, crisp ghee paper roasts, and eighteen-dish plantain leaf thalis.
+            </p>
+
+            <div class="mt-4 space-y-2 text-xs text-on-surface">
+              <div class="flex justify-between py-1 border-b border-outline-variant/20">
+                <span class="font-medium">Breakfast Tiffin:</span>
+                <span class="text-on-surface-variant font-mono">07:00 AM – 11:00 AM</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-outline-variant/20 bg-primary/10 px-2 rounded">
+                <span class="font-bold text-primary">Royal Lunch Thali:</span>
+                <span class="text-primary font-mono font-bold">12:00 PM – 03:30 PM</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-outline-variant/20">
+                <span class="font-medium">Evening Tiffin &amp; Snacks:</span>
+                <span class="text-on-surface-variant font-mono">04:00 PM – 07:00 PM</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="font-medium">Dinner Feast:</span>
+                <span class="text-on-surface-variant font-mono">07:00 PM – 10:30 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flagship Estate Address Card -->
+          <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-2xl overflow-hidden shadow-sm">
+            <div class="relative h-48 w-full bg-surface-variant group overflow-hidden">
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                   alt="Heritage dining quarter courtyard with palm foliage and terracotta roadways" 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp5VHwSZmc4eI6caueIROoFPFuAjWqNEHXQVCB2dfUkdTGNjHdcpKRTMG7MOr0fxnuilYNwwj3yvgNay69NVFR98O39Sb9ytlK5eyJZmLCNiAc8fkAPVSu-GsUGyR4AlSwaHTaJAYPynRWtkdI0ts-Z3q2ZtK-I5IHub73TlBtVTB4JFk6Yque2XAoJmxr5MhMvUCLzkqBMpG5vdBpUD7CJnZ-gG5Mv6HtsH5K6CYR0DxCdv1z5cz9"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-white">
+                <span class="text-xs bg-black/50 px-2.5 py-1 rounded backdrop-blur-sm">Gate 1 Valet Counter</span>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface text-primary text-xs font-bold shadow hover:bg-surface-bright">
+                  <span class="material-symbols-outlined text-sm">directions</span>
+                  <span>Google Maps</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-primary font-bold">
+                <span class="material-symbols-outlined text-lg">pin_drop</span>
+                <h3 class="font-headline-sm text-base">Flagship Heritage Estate — Chennai</h3>
+              </div>
+              <address class="not-italic text-xs text-on-surface-variant leading-relaxed">
+                Welcome Restaurant Heritage Enclave,<br/>
+                42 Sri Meenakshi Temple Road, Mylapore,<br/>
+                Chennai, Tamil Nadu 600004
+              </address>
+              <p class="text-[11px] text-on-surface-variant bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/30">
+                <strong>Landmark:</strong> Diagonally opposite Kapaleeshwarar Temple North Mada Archway. Dedicated complimentary valet attendant on duty.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <a href="tel:+914424991234" class="p-2.5 rounded-lg border border-outline-variant/60 hover:border-primary flex items-center gap-2 transition-colors">
+                  <span class="material-symbols-outlined text-primary text-base">call</span>
+                  <div>
+                    <span class="text-[10px] text-on-surface-variant block">Dining Desk</span>
+                    <span class="text-xs font-bold text-on-surface">+91 44 2499 1234</span>
+                  </div>
+                </a>
+                <a href="https://wa.me/919840012345" target="_blank" class="p-2.5 rounded-lg border border-outline-variant/60 hover:border-primary flex items-center gap-2 transition-colors">
+                  <span class="material-symbols-outlined text-secondary text-base">chat</span>
+                  <div>
+                    <span class="text-[10px] text-on-surface-variant block">WhatsApp Concierge</span>
+                    <span class="text-xs font-bold text-on-surface">+91 98400 12345</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banquets & Private Catering Inquiry -->
+          <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-2xl p-6 shadow-sm space-y-4" id="banquet">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-xl">diversity_3</span>
+              <h3 class="font-headline-sm text-base font-bold text-on-surface">Banquets &amp; Traditional Catering</h3>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              We cater sacred wedding feasts, Grihapravesham (housewarming) thalis, and corporate gatherings with live dosa stations and brass filter kaapi counters.
+            </p>
+
+            <form onsubmit="handleInquirySubmit(event)" class="space-y-3">
+              <div class="grid grid-cols-2 gap-2">
+                <input required placeholder="Your Name *" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="text"/>
+                <input required placeholder="Mobile Number *" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="tel"/>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <select class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+                  <option>Traditional Wedding Feast</option>
+                  <option>Grihapravesham (Housewarming)</option>
+                  <option>Family Seemantham / Puja</option>
+                  <option>Corporate Sattvic Lunch</option>
+                </select>
+                <input placeholder="Est. Guests (e.g. 50-200)" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="text"/>
+              </div>
+              <button type="submit" class="w-full py-2.5 rounded-lg bg-surface-container-high border border-primary text-primary hover:bg-primary hover:text-on-primary font-label-md text-xs font-bold transition-all">
+                Request Banquet Consultation
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-surface-container-high border-t border-outline-variant/40">
+    <div class="w-full px-6 md:px-12 py-16 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-md text-2xl font-semibold text-primary">Welcome Restaurant</span>
+            <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          </div>
+          <p class="font-body-sm text-sm text-on-surface-variant max-w-sm leading-relaxed">
+            Preserving South India's grand temple culinary heritage with uncompromised vegetarian fidelity. Every single dosa, idly, and coffee crafted with pure A2 butter, hand-filtered water, and generational devotion.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-headline-sm text-lg text-primary font-bold">Dining Sessions</h4>
+          <ul class="space-y-2 font-body-sm text-xs text-on-surface-variant">
+            <li><strong class="font-semibold text-on-surface">Breakfast Tiffin:</strong><br/> 7:00 AM – 11:00 AM</li>
+            <li><strong class="font-semibold text-on-surface">Grand Lunch Thali:</strong><br/> 12:00 PM – 3:30 PM</li>
+            <li><strong class="font-semibold text-on-surface">Evening Tiffin:</strong><br/> 4:00 PM – 7:00 PM</li>
+            <li><strong class="font-semibold text-on-surface">Dinner Feast:</strong><br/> 7:00 PM – 10:30 PM</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-headline-sm text-lg text-primary font-bold">Heritage &amp; Menus</h4>
+          <ul class="space-y-2 font-label-md text-xs">
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Our 1982 Heritage</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="menus.html">Signature Menus</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html#pillars">The 3 Sacred Pillars</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Pure Veg Certification</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-headline-sm text-lg text-primary font-bold">Visit &amp; Connect</h4>
+          <ul class="space-y-2 font-label-md text-xs">
+            <li><a class="text-primary font-bold" href="contact.html">Mylapore, Chennai</a></li>
+            <li><a class="text-primary font-bold" href="contact.html">Indiranagar, Bengaluru</a></li>
+            <li><a class="text-primary font-bold" href="contact.html">RS Puram, Coimbatore</a></li>
+            <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html#banquet">Catering &amp; Banquets</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-10 mt-10 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-center gap-4 text-on-surface-variant font-body-sm text-xs">
+        <p>© 2026 Welcome Restaurant. Authentic South Indian Pure Vegetarian Dining. All Rights Reserved.</p>
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5 text-secondary font-semibold">
+            <span class="material-symbols-outlined text-sm">restaurant</span>
+            Pure Sattvic Kitchen
+          </span>
+          <span>Chennai • Bengaluru • Coimbatore</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SHARED CART SLIDE-OVER DRAWER ==================== -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+    <div onclick="closeCartDrawer()" class="drawer-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="drawer-panel w-screen max-w-md bg-surface-container-lowest border-l border-outline-variant/50 shadow-2xl flex flex-col translate-x-full transition-transform">
+        <div class="p-5 border-b border-outline-variant/30 flex items-center justify-between bg-surface-container-low">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-lg">shopping_bag</span>
+            </div>
+            <div>
+              <h3 class="font-headline-sm text-base font-bold text-on-surface">Your Dining Bag</h3>
+              <p class="font-body-sm text-[11px] text-on-surface-variant">Pure Vegetarian • Freshly Prepared</p>
+            </div>
+          </div>
+          <button onclick="closeCartDrawer()" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-5 space-y-3">
+          <div id="cart-drawer-items" class="space-y-3"></div>
+          <div id="cart-drawer-empty" class="hidden text-center py-16 space-y-4">
+            <div class="w-16 h-16 rounded-full bg-surface-container-high mx-auto flex items-center justify-center text-on-surface-variant/50">
+              <span class="material-symbols-outlined text-3xl">shopping_basket</span>
+            </div>
+            <h4 class="font-headline-sm text-base text-on-surface font-semibold">Your bag is empty</h4>
+          </div>
+        </div>
+
+        <div class="p-5 border-t border-outline-variant/30 bg-surface-container-low space-y-3">
+          <div class="space-y-1.5 text-xs text-on-surface-variant">
+            <div class="flex justify-between"><span>Item Subtotal</span><span id="cart-drawer-subtotal" class="font-semibold text-on-surface">₹0</span></div>
+            <div class="flex justify-between"><span>GST (5%)</span><span id="cart-drawer-tax" class="font-semibold text-on-surface">₹0</span></div>
+            <div class="flex justify-between"><span>Express Delivery</span><span id="cart-drawer-delivery" class="font-semibold text-secondary">FREE</span></div>
+            <div class="border-t border-outline-variant/40 pt-2 flex justify-between text-base font-bold text-on-surface"><span>Grand Total</span><span id="cart-drawer-total" class="text-primary font-headline-sm text-lg">₹0</span></div>
+          </div>
+          <button id="cart-drawer-checkout-btn" onclick="openCheckoutModal()" class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-lg font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2">
+            <span>Proceed to Checkout</span>
+            <span class="material-symbols-outlined text-sm">check_circle</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CHECKOUT MODAL ==================== -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-lg bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-2xl p-6 space-y-5 scale-95 opacity-0 transition-all">
+      <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          <h3 class="font-headline-sm text-lg font-bold text-on-surface">Complete Your Pure Veg Order</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-on-surface-variant hover:text-on-surface p-1">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div id="checkout-modal-summary" class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30"></div>
+
+      <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+        <div class="space-y-1">
+          <label class="font-label-md text-xs font-semibold text-on-surface">Dining Service Mode</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 p-2.5 rounded-lg border border-outline-variant/50 cursor-pointer hover:bg-surface-container-low">
+              <input type="radio" name="orderType" value="delivery" checked class="text-primary focus:ring-primary"/>
+              <span class="text-xs font-medium text-on-surface">Home Delivery</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-lg border border-outline-variant/50 cursor-pointer hover:bg-surface-container-low">
+              <input type="radio" name="orderType" value="dinein" class="text-primary focus:ring-primary"/>
+              <span class="text-xs font-medium text-on-surface">Table Dine-in</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Full Name</label>
+            <input name="customerName" required placeholder="e.g. Sundaram Iyer" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-md text-xs font-semibold text-on-surface">Mobile Number</label>
+            <input name="customerPhone" required placeholder="+91 98400 12345" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary" type="tel"/>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-label-md text-xs font-semibold text-on-surface">Delivery Address / Table #</label>
+          <textarea name="customerAddress" rows="2" placeholder="e.g. 14 North Mada Street, Mylapore" class="w-full bg-surface border border-outline-variant/60 rounded-lg px-3 py-2 text-xs text-on-surface focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-label-md text-xs font-semibold text-on-surface">Payment Method</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="flex flex-col items-center justify-center p-2 rounded-lg border border-outline-variant/50 text-center cursor-pointer hover:border-primary">
+              <input type="radio" name="paymentMethod" value="upi" checked class="text-primary focus:ring-primary"/>
+              <span class="text-[11px] font-bold mt-1">UPI / QR</span>
+            </label>
+            <label class="flex flex-col items-center justify-center p-2 rounded-lg border border-outline-variant/50 text-center cursor-pointer hover:border-primary">
+              <input type="radio" name="paymentMethod" value="card" class="text-primary focus:ring-primary"/>
+              <span class="text-[11px] font-bold mt-1">Card</span>
+            </label>
+            <label class="flex flex-col items-center justify-center p-2 rounded-lg border border-outline-variant/50 text-center cursor-pointer hover:border-primary">
+              <input type="radio" name="paymentMethod" value="cash" class="text-primary focus:ring-primary"/>
+              <span class="text-[11px] font-bold mt-1">Cash</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-lg font-bold text-sm shadow-md transition-all active:scale-95">
+          Place Order &amp; Start Preparation
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== ORDER SUCCESS MODAL ==================== -->
+  <div id="order-success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-md bg-surface-container-lowest rounded-2xl border border-secondary/40 shadow-2xl p-6 text-center space-y-4 scale-95 opacity-0 transition-all">
+      <div class="w-16 h-16 rounded-full bg-secondary-container/40 text-secondary mx-auto flex items-center justify-center">
+        <span class="material-symbols-outlined text-3xl">celebration</span>
+      </div>
+      <div>
+        <span class="font-label-sm text-xs uppercase tracking-widest text-secondary font-bold">Order Received</span>
+        <h3 class="font-headline-lg text-2xl font-bold text-on-surface mt-1">Feast in the Making!</h3>
+        <p class="font-body-sm text-xs text-on-surface-variant mt-1">
+          Our master chefs have begun stone-grinding and roasting with pure A2 cow ghee.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl p-4 text-left space-y-1.5 border border-outline-variant/40 text-xs">
+        <div class="flex justify-between"><span class="text-on-surface-variant">Order Reference:</span><span id="success-order-id" class="font-bold text-primary">WR-849201</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Recipient:</span><span id="success-order-name" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Mobile:</span><span id="success-order-phone" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Mode:</span><span id="success-order-type" class="font-semibold text-secondary">Express Delivery</span></div>
+        <div class="flex justify-between border-t border-outline-variant/40 pt-1 mt-1"><span class="text-on-surface font-bold">Amount:</span><span id="success-order-amount" class="font-bold text-primary text-sm">₹0</span></div>
+      </div>
+
+      <button onclick="closeOrderSuccessModal()" class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md text-xs font-bold hover:bg-tertiary transition-all">
+        Wonderful, Thank You!
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== BOOKING SUCCESS MODAL ==================== -->
+  <div id="booking-success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="modal-panel w-full max-w-md bg-surface-container-lowest rounded-2xl border border-secondary/40 shadow-2xl p-6 text-center space-y-4 scale-95 opacity-0 transition-all">
+      <div class="w-16 h-16 rounded-full bg-secondary-container/40 text-secondary mx-auto flex items-center justify-center">
+        <span class="material-symbols-outlined text-3xl">event_seat</span>
+      </div>
+      <div>
+        <span class="font-label-sm text-xs uppercase tracking-widest text-secondary font-bold">Booking Confirmed</span>
+        <h3 class="font-headline-lg text-2xl font-bold text-on-surface mt-1">Table Awaiting You!</h3>
+        <p class="font-body-sm text-xs text-on-surface-variant mt-1">
+          Your banana leaf table is secured. We look forward to welcoming you.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl p-4 text-left space-y-1.5 border border-outline-variant/40 text-xs">
+        <div class="flex justify-between"><span class="text-on-surface-variant">Booking Reference:</span><span id="booking-ref-code" class="font-bold text-primary">WR-RES-5192</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Guest Name:</span><span id="booking-guest-name" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Party Size:</span><span id="booking-guests-count" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Date &amp; Session:</span><span id="booking-date-session" class="font-semibold text-on-surface">-</span></div>
+        <div class="flex justify-between"><span class="text-on-surface-variant">Seating:</span><span id="booking-zone" class="font-semibold text-secondary">-</span></div>
+      </div>
+
+      <button onclick="closeBookingSuccessModal()" class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md text-xs font-bold hover:bg-tertiary transition-all">
+        Done &amp; Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE NAVIGATION DRAWER ==================== -->
+  <div id="mobile-nav-drawer" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+    <div onclick="closeMobileMenu()" class="mobile-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity"></div>
+    <div class="fixed inset-y-0 left-0 max-w-full flex">
+      <div class="mobile-panel w-72 bg-surface-container-lowest border-r border-outline-variant/50 shadow-2xl flex flex-col -translate-x-full transition-transform p-6 space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+          <div class="flex items-center gap-2">
+            <span class="font-headline-sm text-lg font-bold text-primary">Welcome Restaurant</span>
+            <div class="pure-veg-symbol"><div class="pure-veg-dot"></div></div>
+          </div>
+          <button onclick="closeMobileMenu()" class="p-1 text-on-surface-variant hover:text-on-surface">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-3 font-label-lg text-sm">
+          <a class="px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="index.html">Home</a>
+          <a class="px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="about.html">Our Story &amp; Heritage</a>
+          <a class="px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="menus.html">Signature Menus</a>
+          <a class="px-3 py-2 rounded-lg bg-primary/10 text-primary font-bold" href="contact.html">Contact &amp; Reservation</a>
+        </nav>
+
+        <div class="pt-4 border-t border-outline-variant/30 space-y-3">
+          <a href="menus.html" class="w-full py-2.5 px-4 rounded-lg bg-surface-container-high border border-primary text-primary font-label-md text-xs font-bold flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-sm">restaurant_menu</span>
+            <span>Order Online</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
